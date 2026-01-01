@@ -1,5 +1,5 @@
 name: "Stash"
-version: "0.27.2"
+version: "0.27.2-1"
 slug: "stash"
 description: "Stash - An organizer for your media with a web-based UI"
 url: "https://github.com/zer0sis/hass-addons/tree/main/stash"
