@@ -1,11 +1,11 @@
 name: "Stash"
-version: "0.27.2-2"
+version: "0.27.2-3"
 slug: "stash"
 description: "Stash - An organizer for your media with a web-based UI"
 url: "https://github.com/zer0sis/hass-addons/tree/main/stash"
+image: "ghcr.io/zer0sis/stash-addon-{arch}"
 arch:
   - amd64
-  - aarch64
 
 # Ingress configuration
 ingress: true
