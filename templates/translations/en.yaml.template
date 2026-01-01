@@ -1,0 +1,14 @@
+# Home Assistant Add-on Translations Template (English)
+# Place in: <addon-name>/translations/en.yaml
+
+configuration:
+  # Add configuration option descriptions here
+  # log_level:
+  #   name: Log Level
+  #   description: The log verbosity level (debug, info, warning, error)
+  # port:
+  #   name: Port
+  #   description: The port the service will listen on
+
+network:
+  {{PORT}}/tcp: Web interface port

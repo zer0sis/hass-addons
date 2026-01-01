@@ -1,0 +1,37 @@
+# Stash - Media Organizer
+# Add this service to your docker-compose.yml under 'services:'
+# Documentation: https://github.com/stashapp/stash
+
+  stash:
+    image: stashapp/stash:latest
+    container_name: stash
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "2m"
+    environment:
+      - TZ=${TZ:-UTC}
+      - STASH_STASH=/data/
+      - STASH_GENERATED=/generated/
+      - STASH_METADATA=/metadata/
+      - STASH_CACHE=/cache/
+      - STASH_PORT=9999
+    volumes:
+      # Configuration - stores settings, database, etc.
+      - ./stash/config:/root/.stash
+      # Media library - point to your media collection
+      - ./stash/data:/data
+      # Metadata - scene/performer metadata
+      - ./stash/metadata:/metadata
+      # Cache - temporary files
+      - ./stash/cache:/cache
+      # Blobs - binary data storage
+      - ./stash/blobs:/blobs
+      # Generated - thumbnails, previews, transcodes
+      - ./stash/generated:/generated
+      # Timezone (read-only)
+      - /etc/localtime:/etc/localtime:ro
+    # Uncomment below for DLNA support (requires host network)
+    # network_mode: host

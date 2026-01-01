@@ -1,0 +1,77 @@
+# Base Docker Compose for Home Assistant with hass_ingress support
+# This setup allows running add-on equivalents as Docker containers
+# with ingress integration into Home Assistant's sidebar
+
+name: ha
+
+networks:
+  default:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: hassio
+    ipam:
+      config:
+        - subnet: 172.30.32.0/23
+          ip_range: 172.30.33.0/24
+          gateway: 172.30.32.1
+
+services:
+  # DNS Proxy - Required for Home Assistant to resolve container names
+  dns:
+    image: nginx:alpine
+    container_name: ha-dns
+    restart: always
+    networks:
+      default:
+        ipv4_address: 172.30.32.3
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx/dns_proxy.conf:/etc/nginx/nginx.conf:ro
+
+  # Home Assistant Core
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: always
+    privileged: true
+    network_mode: host
+    dns:
+      - 172.30.32.3
+    dns_opt:
+      - ndots:0
+    environment:
+      - TZ=${TZ:-UTC}
+    volumes:
+      - /run/dbus:/run/dbus:ro
+      - ./homeassistant:/config
+      - ./share:/share
+    depends_on:
+      - dns
+
+# =============================================================================
+# Add your services below - they will be accessible via ingress
+# =============================================================================
+
+# Example: Node-RED
+#   nodered:
+#     image: nodered/node-red:latest
+#     container_name: nodered
+#     restart: unless-stopped
+#     environment:
+#       - TZ=${TZ:-UTC}
+#     volumes:
+#       - ./node-red:/data
+#       - ./share:/share
+
+# Example: VS Code Server
+#   vscode:
+#     image: linuxserver/code-server:latest
+#     container_name: vscode
+#     restart: unless-stopped
+#     environment:
+#       - TZ=${TZ:-UTC}
+#       - PUID=0
+#       - PGID=0
+#     volumes:
+#       - ./vscode:/config
+#       - .:/data

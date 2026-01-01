@@ -1,0 +1,36 @@
+# {{ADDON_NAME}}
+
+{{DESCRIPTION}}
+
+## Installation
+
+1. Add this repository to your Home Assistant add-on store
+2. Install the "{{ADDON_NAME}}" add-on
+3. Configure the add-on (see Configuration section)
+4. Start the add-on
+5. Access the web UI via the sidebar or "Open Web UI" button
+
+## Configuration
+
+Add-on configuration:
+
+```yaml
+# Example configuration
+```
+
+### Option: `option_name`
+
+Description of this option.
+
+## Ingress
+
+This add-on supports Home Assistant Ingress, allowing you to access the web interface directly through the Home Assistant sidebar without exposing additional ports.
+
+## Support
+
+- [GitHub Issues](https://github.com/YOUR_USERNAME/homeassistant-addons/issues)
+- [Home Assistant Community](https://community.home-assistant.io/)
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.

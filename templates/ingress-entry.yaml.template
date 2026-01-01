@@ -1,0 +1,15 @@
+# Home Assistant Ingress Configuration Entry
+# Add this to your Home Assistant configuration.yaml under 'ingress:'
+
+  {{SERVICE_NAME}}:
+    work_mode: ingress       # Options: ingress, iframe, auth, hassio
+    ui_mode: normal          # Options: normal, toolbar
+    require_admin: true      # Require admin user to access
+    title: "{{DISPLAY_NAME}}"
+    icon: "mdi:{{ICON}}"
+    url: http://{{SERVICE_NAME}}:{{PORT}}
+    # Optional: For services that need specific URL paths
+    # url_path: /dashboard
+    # Optional: For services requiring custom headers
+    # headers:
+    #   X-Custom-Header: value

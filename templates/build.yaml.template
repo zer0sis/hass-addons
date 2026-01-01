@@ -1,0 +1,25 @@
+# Home Assistant Add-on Build Configuration Template
+
+# Build arguments
+build_from:
+  amd64: "ghcr.io/home-assistant/amd64-base:latest"
+  aarch64: "ghcr.io/home-assistant/aarch64-base:latest"
+  armv7: "ghcr.io/home-assistant/armv7-base:latest"
+  i386: "ghcr.io/home-assistant/i386-base:latest"
+
+# Alternative: Use a specific application image as base
+# build_from:
+#   amd64: "{{BASE_IMAGE}}"
+#   aarch64: "{{BASE_IMAGE}}"
+#   armv7: "{{BASE_IMAGE}}"
+
+# Build arguments passed to Dockerfile
+args:
+  BUILD_VERSION: "1.0.0"
+
+# Labels for the built image
+labels:
+  org.opencontainers.image.title: "{{ADDON_NAME}}"
+  org.opencontainers.image.description: "{{DESCRIPTION}}"
+  org.opencontainers.image.source: "https://github.com/YOUR_USERNAME/homeassistant-addons"
+  org.opencontainers.image.licenses: "MIT"

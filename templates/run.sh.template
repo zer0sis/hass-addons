@@ -1,0 +1,51 @@
+#!/usr/bin/env bashio
+# Home Assistant Add-on Run Script Template
+# This script is the entrypoint for the add-on container
+
+set -e
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Read options from add-on configuration
+# CONFIG_VALUE=$(bashio::config 'config_key')
+# LOG_LEVEL=$(bashio::config 'log_level')
+
+# Get Home Assistant info if needed
+# HA_TOKEN=$(bashio::config 'homeassistant.access_token')
+# HA_URL="http://supervisor/core"
+
+# =============================================================================
+# Logging
+# =============================================================================
+
+bashio::log.info "Starting {{ADDON_NAME}}..."
+
+# =============================================================================
+# Pre-start Configuration
+# =============================================================================
+
+# Create configuration directory if it doesn't exist
+# mkdir -p /data/config
+
+# Generate configuration files from templates if needed
+# if [ ! -f /data/config/settings.json ]; then
+#     bashio::log.info "Creating default configuration..."
+#     cp /defaults/settings.json /data/config/
+# fi
+
+# =============================================================================
+# Start Application
+# =============================================================================
+
+bashio::log.info "Application starting on port {{PORT}}..."
+
+# Execute the main application
+# Replace this with the actual start command for your application
+exec {{START_COMMAND}}
+
+# Examples:
+# exec node /app/server.js
+# exec python3 /app/main.py
+# exec /usr/bin/myapp --config /data/config.yaml

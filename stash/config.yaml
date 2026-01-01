@@ -1,0 +1,44 @@
+name: "Stash"
+version: "0.27.2"
+slug: "stash"
+description: "Stash - An organizer for your media with a web-based UI"
+url: "https://github.com/zer0sis/hass-addons/tree/main/stash"
+arch:
+  - amd64
+  - aarch64
+
+# Ingress configuration
+ingress: true
+ingress_port: 9999
+ingress_stream: false
+panel_icon: "mdi:movie-search"
+panel_title: "Stash"
+panel_admin: true
+
+# Startup configuration
+startup: application
+boot: auto
+timeout: 120
+
+# User-configurable options
+options:
+  data_path: "/share/stash/data"
+  log_level: "Info"
+schema:
+  data_path: str
+  log_level: list(Trace|Debug|Info|Warning|Error)
+
+# Port mappings (null = not exposed to host by default)
+ports:
+  9999/tcp: null
+ports_description:
+  9999/tcp: "Web interface"
+
+# Volume mappings
+map:
+  - config:rw
+  - share:rw
+  - media:ro
+
+# Hardware access (for hardware transcoding if available)
+video: true

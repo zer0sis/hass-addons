@@ -1,0 +1,21 @@
+# Docker Compose Service Template
+# Add this to your docker-compose.yml under 'services:'
+
+  {{SERVICE_NAME}}:
+    image: {{DOCKER_IMAGE}}
+    container_name: {{SERVICE_NAME}}
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ:-UTC}
+      # Add image-specific environment variables below:
+      {{ENV_VARS}}
+    volumes:
+      - ./{{SERVICE_NAME}}:/data
+      - ./share:/share
+      {{VOLUMES}}
+    # Uncomment if the service needs specific ports exposed to host:
+    # ports:
+    #   - "{{PORT}}:{{PORT}}"
+    # Uncomment for device access (e.g., USB, serial):
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0

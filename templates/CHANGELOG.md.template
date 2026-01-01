@@ -1,0 +1,16 @@
+# Changelog
+
+All notable changes to this add-on will be documented in this file.
+
+## [1.0.0] - {{DATE}}
+
+### Added
+- Initial release
+- Ingress support for seamless Home Assistant integration
+- Configuration options for customization
+
+### Changed
+- N/A
+
+### Fixed
+- N/A

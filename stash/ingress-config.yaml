@@ -1,0 +1,17 @@
+# Stash - Home Assistant Ingress Configuration
+# Add this to your Home Assistant configuration.yaml under 'ingress:'
+#
+# Prerequisites:
+#   1. Install HACS (Home Assistant Community Store)
+#   2. Install 'hass_ingress' integration via HACS
+#   3. Add this configuration and restart HA
+#   4. Reload via: Developer Tools > YAML > Reload INGRESS
+
+ingress:
+  stash:
+    work_mode: ingress
+    ui_mode: normal
+    require_admin: true
+    title: "Stash"
+    icon: "mdi:movie-search"
+    url: http://stash:9999

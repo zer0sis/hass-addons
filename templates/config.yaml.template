@@ -1,0 +1,66 @@
+# Home Assistant Add-on Configuration Template
+# Replace placeholders: {{ADDON_NAME}}, {{SLUG}}, {{DESCRIPTION}}, {{PORT}}, {{ICON}}
+
+name: "{{ADDON_NAME}}"
+version: "1.0.0"
+slug: "{{SLUG}}"
+description: "{{DESCRIPTION}}"
+url: "https://github.com/YOUR_USERNAME/homeassistant-addons"
+
+# Supported architectures
+arch:
+  - amd64
+  - aarch64
+  - armv7
+  - i386
+
+# Ingress configuration (web UI embedded in HA)
+ingress: true
+ingress_port: {{PORT}}
+ingress_stream: false
+panel_icon: "mdi:{{ICON}}"
+panel_title: "{{ADDON_NAME}}"
+panel_admin: true
+
+# Startup configuration
+startup: application
+boot: auto
+timeout: 60
+
+# User-configurable options
+options:
+  # Example: log_level: info
+schema:
+  # Example: log_level: str
+
+# Port mappings (set to null for no host exposure, or port number)
+ports:
+  {{PORT}}/tcp: null
+ports_description:
+  {{PORT}}/tcp: "Web interface"
+
+# Volume mappings
+map:
+  - config:rw
+  - share:rw
+  - ssl:ro
+
+# Environment variables passed to container
+environment: {}
+
+# Privileged access (only if truly needed)
+privileged: []
+
+# Hardware access
+gpio: false
+usb: false
+uart: false
+audio: false
+
+# API access
+hassio_api: false
+homeassistant_api: false
+auth_api: false
+
+# Backup configuration
+backup: hot
