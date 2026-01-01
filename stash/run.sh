@@ -1,8 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # Stash Add-on Run Script
 
-set -e
-
 # =============================================================================
 # Configuration
 # =============================================================================
@@ -18,18 +16,17 @@ bashio::log.info "Log level: ${LOG_LEVEL}"
 # Setup directories
 # =============================================================================
 
-# Create data directories if they don't exist
-mkdir -p "${DATA_PATH}"
+mkdir -p "${DATA_PATH}" || true
 mkdir -p /config/stash
 mkdir -p /generated
 mkdir -p /metadata
 mkdir -p /cache
 mkdir -p /blobs
 
-# Link stash config directory
+# Link stash config directory to addon config
 if [ ! -L /root/.stash ]; then
-    rm -rf /root/.stash
-    ln -s /config/stash /root/.stash
+    rm -rf /root/.stash 2>/dev/null || true
+    ln -sf /config/stash /root/.stash
 fi
 
 # =============================================================================
@@ -48,5 +45,4 @@ export STASH_PORT="9999"
 
 bashio::log.info "Starting Stash on port 9999..."
 
-# Execute the stash binary
 exec /usr/bin/stash --nobrowser
