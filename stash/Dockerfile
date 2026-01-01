@@ -74,10 +74,7 @@ ENV STASH_STASH=/data/ \
 # Create required directories
 RUN mkdir -p /data /generated /metadata /cache /blobs /config/stash
 
-# Copy run script
-COPY run.sh /run.sh
-RUN chmod a+x /run.sh
+# Copy s6-overlay service files
+COPY rootfs /
 
 EXPOSE 9999
-
-CMD ["/run.sh"]
