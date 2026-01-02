@@ -1,13 +1,18 @@
 # Changelog
 
-All notable changes to this add-on will be documented in this file.
+## 0.27.2-4
+- Fixed s6-overlay v3 structure for proper service management
+- Using hassio-addons base image for better compatibility
+- Added proper icon and logo
 
-## [0.27.2] - 2025-01-01
+## 0.27.2-3
+- Switched to pre-built GHCR images for faster installation
 
-### Added
+## 0.27.2-2
+- Fixed s6-overlay service structure
+
+## 0.27.2-1
 - Initial release
-- Home Assistant ingress support
-- Configurable data path
-- Configurable log level
-- Hardware transcoding support (video access enabled)
-- Multi-architecture support (amd64, aarch64)
+- Built from source for security/trust
+- Full ingress support
+- Hardware transcoding support

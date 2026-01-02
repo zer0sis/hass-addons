@@ -1,5 +1,5 @@
 name: "Stash"
-version: "0.27.2-4"
+version: "0.27.2-5"
 slug: "stash"
 description: "Stash - An organizer for your media with a web-based UI"
 url: "https://github.com/zer0sis/hass-addons/tree/main/stash"
@@ -39,7 +39,7 @@ ports_description:
 map:
   - config:rw
   - share:rw
-  - media:ro
+  - media:rw
 
 # Hardware access (for hardware transcoding if available)
 video: true
