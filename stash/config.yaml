@@ -1,5 +1,5 @@
 name: "Stash"
-version: "0.27.2-5"
+version: "0.27.2-6"
 slug: "stash"
 description: "Stash - An organizer for your media with a web-based UI"
 url: "https://github.com/zer0sis/hass-addons/tree/main/stash"
@@ -10,7 +10,7 @@ arch:
 
 # Ingress configuration
 ingress: true
-ingress_port: 9999
+ingress_port: 8099
 ingress_stream: false
 panel_icon: "mdi:movie-search"
 panel_title: "Stash"

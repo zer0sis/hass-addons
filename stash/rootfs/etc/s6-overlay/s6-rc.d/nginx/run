@@ -1,0 +1,13 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start nginx for ingress proxy
+# ==============================================================================
+
+bashio::log.info "Starting nginx ingress proxy..."
+
+# Create nginx directories
+mkdir -p /var/log/nginx /run/nginx
+
+# Start nginx in foreground
+exec nginx -g "daemon off; error_log /dev/stdout info;"

@@ -58,7 +58,8 @@ FROM ${BUILD_FROM}
 RUN apk add --no-cache \
     ca-certificates \
     ffmpeg \
-    vips-tools
+    vips-tools \
+    nginx
 
 # Copy built binary from backend stage
 COPY --from=backend /stash/stash /usr/bin/stash
