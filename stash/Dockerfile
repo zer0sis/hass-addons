@@ -2,7 +2,7 @@
 # Multi-stage build based on official stashapp/stash build process
 
 ARG STASH_VERSION=v0.27.2
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:19.0.0
 
 # =============================================================================
 # Stage 1: Build Frontend
